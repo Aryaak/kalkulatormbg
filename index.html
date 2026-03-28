@@ -1,819 +1,742 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" prefix="og: https://ogp.me/ns#">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalkulator MBG</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <!-- ═══════════════════════════════════════════════════════════════════
+       CORE META
+  ═══════════════════════════════════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="id">
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #09090b;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 72px 24px 24px;
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PRIMARY SEO
+  ═══════════════════════════════════════════════════════════════════ -->
+  <title>Kalkulator MBG – Hitung Setara Berapa Hari Anggaran Makan Bergizi Gratis</title>
+
+  <meta name="description"
+        content="Kalkulator MBG online gratis. Masukkan nominal uang dan ketahui setara berapa hari anggaran program Makan Bergizi Gratis (MBG) senilai 1,2 Triliun Rupiah per hari. Cek sekarang!">
+
+  <meta name="keywords"
+        content="kalkulator MBG, makan bergizi gratis, anggaran MBG, hitung MBG, MBG kalkulator, berapa hari MBG, 1.2 triliun MBG, program makan gratis sekolah, kalkulator anggaran negara">
+
+  <meta name="author" content="Arya Tim">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://kalkulatormbg.vercel.app/">
+
+  <!-- Alternate hreflang (ID sebagai primary) -->
+  <link rel="alternate" hreflang="id" href="https://kalkulatormbg.vercel.app/">
+  <link rel="alternate" hreflang="x-default" href="https://kalkulatormbg.vercel.app/">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       OPEN GRAPH (Facebook, WhatsApp, Telegram, LinkedIn, dll)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kalkulator MBG">
+  <meta property="og:locale" content="id_ID">
+
+  <meta property="og:title"
+        content="Kalkulator MBG – Uangmu Setara Berapa Hari Anggaran Makan Bergizi Gratis?">
+  <meta property="og:description"
+        content="1,2 Triliun Rupiah = 1 Hari program MBG. Masukkan nominalmu dan lihat hasilnya dalam hari, jam, menit & detik. Gratis, cepat, langsung bisa di-share ke Story!">
+
+  <meta property="og:url" content="https://kalkulatormbg.vercel.app/">
+
+  <!-- OG Image — WAJIB 1200×630 px, < 8 MB -->
+  <meta property="og:image"              content="https://kalkulatormbg.vercel.app/og-image.png">
+  <meta property="og:image:secure_url"   content="https://kalkulatormbg.vercel.app/og-image.png">
+  <meta property="og:image:type"         content="image/png">
+  <meta property="og:image:width"        content="1200">
+  <meta property="og:image:height"       content="630">
+  <meta property="og:image:alt"
+        content="Kalkulator MBG – Hitung setara berapa hari anggaran Makan Bergizi Gratis senilai 1,2 Triliun">
+
+  <!-- OG Image tambahan (versi persegi untuk IG / FB feed) -->
+  <meta property="og:image"       content="https://kalkulatormbg.vercel.app/og-image-square.png">
+  <meta property="og:image:type"  content="image/png">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt"
+        content="Kalkulator MBG – Makan Bergizi Gratis 1,2 Triliun per hari">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TWITTER / X CARD
+  ═══════════════════════════════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@aryatim">
+  <meta name="twitter:creator"     content="@aryatim">
+  <meta name="twitter:title"
+        content="Kalkulator MBG – Uangmu Setara Berapa Hari Anggaran Makan Bergizi Gratis?">
+  <meta name="twitter:description"
+        content="1,2 T Rupiah = 1 Hari MBG. Masukkan nominalmu dan cek hasilnya sekarang — share ke Story!">
+  <meta name="twitter:image"       content="https://kalkulatormbg.vercel.app/og-image.png">
+  <meta name="twitter:image:alt"
+        content="Kalkulator MBG – Hitung anggaran Makan Bergizi Gratis">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       APPLE / IOS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kalkulator MBG">
+  <link rel="apple-touch-icon"              href="https://kalkulatormbg.vercel.app/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://kalkulatormbg.vercel.app/apple-touch-icon-180.png">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FAVICON / PWA ICONS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <link rel="icon"             type="image/x-icon"  href="/favicon.ico">
+  <link rel="icon"             type="image/png" sizes="32x32"  href="/favicon-32x32.png">
+  <link rel="icon"             type="image/png" sizes="16x16"  href="/favicon-16x16.png">
+  <link rel="icon"             type="image/svg+xml"            href="/favicon.svg">
+  <link rel="manifest"                                          href="/site.webmanifest">
+  <meta name="theme-color"     content="#e53e3e"
+        media="(prefers-color-scheme: dark)">
+  <meta name="theme-color"     content="#e53e3e"
+        media="(prefers-color-scheme: light)">
+  <meta name="msapplication-TileColor" content="#e53e3e">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="msapplication-config"    content="/browserconfig.xml">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       JSON-LD STRUCTURED DATA
+       1. WebApplication  — ditangkap Google sebagai Rich Result "App"
+       2. FAQPage         — ditangkap Google sebagai FAQ Rich Snippet
+       3. BreadcrumbList  — mempercantik URL di SERP
+  ═══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://kalkulatormbg.vercel.app/#app",
+        "name": "Kalkulator MBG",
+        "alternateName": ["Kalkulator Makan Bergizi Gratis", "MBG Calculator"],
+        "description": "Kalkulator online gratis untuk menghitung berapa hari anggaran program Makan Bergizi Gratis (MBG) yang setara dengan nominal uang yang dimasukkan. Anggaran MBG = Rp 1,2 Triliun per hari.",
+        "url": "https://kalkulatormbg.vercel.app/",
+        "applicationCategory": "UtilitiesApplication",
+        "applicationSubCategory": "Calculator",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": "id-ID",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "IDR"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Arya Tim",
+          "url": "https://saweria.co/aryatim"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Kalkulator MBG",
+          "url": "https://kalkulatormbg.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://kalkulatormbg.vercel.app/og-image.png",
+            "width": 1200,
+            "height": 630
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://kalkulatormbg.vercel.app/og-image.png",
+          "width": 1200,
+          "height": 630
+        },
+        "screenshot": "https://kalkulatormbg.vercel.app/screenshot.png",
+        "featureList": [
+          "Hitung setara hari anggaran MBG",
+          "Konversi ke jam, menit, detik",
+          "Hitung jumlah siswa yang bisa menerima",
+          "Share ke Instagram / WhatsApp Story"
+        ],
+        "keywords": "kalkulator MBG, makan bergizi gratis, anggaran MBG, hitung MBG"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://kalkulatormbg.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Berapa anggaran program Makan Bergizi Gratis (MBG) per hari?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Anggaran program Makan Bergizi Gratis (MBG) adalah Rp 1,2 Triliun per hari. Kalkulator MBG memudahkan kamu mengetahui nominal uang apapun setara berapa hari anggaran tersebut."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apa itu program Makan Bergizi Gratis (MBG)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Program Makan Bergizi Gratis (MBG) adalah program pemerintah Indonesia yang memberikan makanan bergizi secara gratis kepada siswa sekolah. Program ini membutuhkan anggaran sekitar Rp 1,2 Triliun per hari."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bagaimana cara menggunakan Kalkulator MBG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Masukkan judul (opsional) dan nominal uang dalam Rupiah, lalu klik tombol Hitung. Kalkulator akan langsung menampilkan hasil setara berapa hari, jam, menit, dan detik anggaran MBG, serta berapa siswa yang bisa menerima manfaat."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Berapa harga makan per siswa dalam program MBG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dalam kalkulator ini, harga makan per siswa diasumsikan Rp 10.000 per porsi, sehingga kamu bisa melihat berapa banyak siswa yang bisa mendapatkan makan bergizi gratis dari nominal uang yang kamu masukkan."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://kalkulatormbg.vercel.app/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "https://kalkulatormbg.vercel.app/"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://kalkulatormbg.vercel.app/#website",
+        "url": "https://kalkulatormbg.vercel.app/",
+        "name": "Kalkulator MBG",
+        "description": "Hitung setara berapa hari anggaran Makan Bergizi Gratis dari nominalmu",
+        "inLanguage": "id-ID",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://kalkulatormbg.vercel.app/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
   }
+  </script>
 
-  .support-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 48px;
-    background: linear-gradient(90deg, #e53e3e, #c53030, #e53e3e);
-    background-size: 200% 100%;
-    animation: shimmer 3s infinite linear;
-    box-shadow: 0 4px 15px rgba(229, 62, 62, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PERFORMANCE & RESOURCE HINTS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <!-- Preconnect ke CDN eksternal -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: 0 0; }
-  }
+  <!-- Preload aset kritis -->
+  <link rel="preload" as="script"
+        href="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        crossorigin="anonymous">
+  <link rel="preload" as="image"
+        href="https://kalkulatormbg.vercel.app/og-image.png"
+        fetchpriority="high">
 
-  .support-link {
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 900;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.2s;
-    animation: pulse 1.5s infinite ease-in-out;
-  }
+  <!-- DNS prefetch -->
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://saweria.co">
 
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-  }
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SITEMAP & INDEXING HINTS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <!-- Daftarkan sitemap via HTTP header atau file /sitemap.xml
+       Contoh isi sitemap.xml:
+       <?xml version="1.0" encoding="UTF-8"?>
+       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+         <url>
+           <loc>https://kalkulatormbg.vercel.app/</loc>
+           <lastmod>2025-01-01</lastmod>
+           <changefreq>monthly</changefreq>
+           <priority>1.0</priority>
+         </url>
+       </urlset>
+  -->
 
-  .support-link:hover {
-    transform: scale(1.1) !important;
-    filter: brightness(1.1);
-  }
+  <!-- ═══════════════════════════════════════════════════════════════════
+       STYLES (tidak berubah dari versi original)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  .support-link span {
-    font-size: 16px;
-    filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
-  }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #09090b;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 72px 24px 24px;
+    }
 
-  .card {
-    background: #18181b;
-    border-radius: 16px;
-    padding: 36px 32px;
-    max-width: 420px;
-    width: 100%;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.5);
-  }
+    .support-bar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 48px;
+      background: linear-gradient(90deg, #e53e3e, #c53030, #e53e3e);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite linear;
+      box-shadow: 0 4px 15px rgba(229,62,62,.4);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000;
+    }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:0 0} }
 
-  h1 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #fafafa;
-    margin-bottom: 4px;
-    text-align: center;
-  }
+    .support-link {
+      color: #fff; font-size: 11px; font-weight: 900; text-decoration: none;
+      letter-spacing: .1em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+      transition: all .2s;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+    .support-link:hover { transform: scale(1.1) !important; filter: brightness(1.1); }
+    .support-link span { font-size: 16px; filter: drop-shadow(0 0 4px rgba(255,255,255,.4)); }
 
-  .desc {
-    font-size: 13px;
-    color: #71717a;
-    margin-bottom: 28px;
-    text-align: center;
-  }
+    .card {
+      background: #18181b; border-radius: 16px; padding: 36px 32px;
+      max-width: 420px; width: 100%;
+      box-shadow: 0 4px 32px rgba(0,0,0,.5);
+    }
+    h1 { font-size: 20px; font-weight: 700; color: #fafafa; margin-bottom: 4px; text-align: center; }
+    .desc { font-size: 13px; color: #71717a; margin-bottom: 28px; text-align: center; }
 
-  label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #a1a1aa;
-    margin-bottom: 8px;
-  }
+    label { display: block; font-size: 13px; font-weight: 600; color: #a1a1aa; margin-bottom: 8px; }
 
-  .input-wrap {
-    display: flex;
-    align-items: center;
-    border: 1.5px solid #3f3f46;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 14px;
-    transition: border-color 0.2s;
-  }
+    .input-wrap {
+      display: flex; align-items: center;
+      border: 1.5px solid #3f3f46; border-radius: 10px; overflow: hidden;
+      margin-bottom: 14px; transition: border-color .2s;
+    }
+    .input-wrap:focus-within { border-color: #e53e3e; }
 
-  .input-wrap:focus-within { border-color: #e53e3e; }
+    .prefix {
+      padding: 0 12px; font-size: 14px; font-weight: 600; color: #71717a;
+      height: 46px; display: flex; align-items: center;
+      background: #27272a; border-right: 1.5px solid #3f3f46;
+    }
+    input[type="text"] {
+      border: none; outline: none; background: transparent;
+      padding: 0 14px; height: 46px; font-size: 16px; font-weight: 600;
+      color: #fafafa; width: 100%; font-family: inherit;
+    }
+    input::placeholder { color: #52525b; font-weight: 400; }
 
-  .prefix {
-    padding: 0 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #71717a;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    background: #27272a;
-    border-right: 1.5px solid #3f3f46;
-  }
+    .judul-label { font-size: 22px; font-weight: 800; color: #fafafa; text-align: center; margin-bottom: 4px; }
+    .judul-sub { font-size: 13px; color: #71717a; text-align: center; margin-bottom: 20px; }
 
-  input[type="text"] {
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 0 14px;
-    height: 46px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fafafa;
-    width: 100%;
-    font-family: inherit;
-  }
+    button {
+      width: 100%; height: 46px; background: #e53e3e; color: #fff;
+      border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+      font-family: inherit; cursor: pointer; transition: background .2s;
+    }
+    button:hover { background: #c53030; }
 
-  input::placeholder { color: #52525b; font-weight: 400; }
+    .result {
+      max-height: 0; opacity: 0; overflow: hidden;
+      margin-top: 0; border-top: 1px solid transparent; padding-top: 0;
+      transition: all .7s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+    }
+    .result.show {
+      max-height: 1000px; opacity: 1; margin-top: 28px;
+      border-top: 1px solid #27272a; padding-top: 24px;
+      pointer-events: auto;
+    }
+    @keyframes resultEntrance {
+      0%{transform:translateY(20px) scale(.95);opacity:0}
+      100%{transform:translateY(0) scale(1);opacity:1}
+    }
+    .result.show > * { animation: resultEntrance .6s cubic-bezier(.34,1.56,.64,1) both; }
+    .result.show > *:nth-child(1){animation-delay:.05s}
+    .result.show > *:nth-child(2){animation-delay:.1s}
+    .result.show > *:nth-child(3){animation-delay:.15s}
+    .result.show > *:nth-child(4){animation-delay:.2s}
+    .result.show > *:nth-child(5){animation-delay:.25s}
+    .result.show > *:nth-child(6){animation-delay:.3s}
+    .result.show > *:nth-child(7){animation-delay:.35s}
 
-  .judul-label {
-    font-size: 22px;
-    font-weight: 800;
-    color: #fafafa;
-    text-align: center;
-    margin-bottom: 4px;
-  }
+    .result-title {
+      font-size: 13px; font-weight: 700; color: #52525b;
+      text-transform: uppercase; letter-spacing: .06em;
+      margin-bottom: 16px; text-align: center;
+    }
+    .hari { font-size: 42px; font-weight: 800; color: #e53e3e; letter-spacing: -.02em; line-height: 1; margin-bottom: 4px; text-align: center; }
+    .hari-label { font-size: 14px; color: #71717a; margin-bottom: 24px; text-align: center; }
 
-  .judul-sub {
-    font-size: 13px;
-    color: #71717a;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+    .time-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 20px; }
+    .time-box { background: #27272a; border: 1px solid #3f3f46; border-radius: 10px; padding: 14px 10px; text-align: center; }
+    .time-val { font-size: 20px; font-weight: 800; color: #fafafa; display: block; margin-bottom: 2px; }
+    .time-unit { font-size: 11px; color: #71717a; }
 
-  button {
-    width: 100%;
-    height: 46px;
-    background: #e53e3e;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
+    .tepatnya { background: #27272a; border-radius: 10px; padding: 14px 16px; font-size: 13px; color: #71717a; text-align: center; }
+    .tepatnya span { font-weight: 700; color: #fafafa; }
 
-  button:hover { background: #c53030; }
+    .btn-share {
+      width: 100%; height: 46px; background: transparent;
+      color: #e53e3e; border: 1.5px solid #e53e3e; border-radius: 10px;
+      font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;
+      margin-top: 14px; transition: all .2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-share:hover { background: rgba(229,62,62,.08); }
 
-  /* Result section */
-  .result {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    margin-top: 0;
-    border-top: 1px solid transparent;
-    padding-top: 0;
-    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-    pointer-events: none;
-  }
+    /* Modal */
+    .modal-overlay {
+      display: flex; position: fixed; inset: 0;
+      background: rgba(0,0,0,.8); z-index: 9999;
+      align-items: center; justify-content: center; padding: 24px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: all .3s ease;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .modal-overlay.show { opacity: 1; visibility: visible; pointer-events: auto; }
+    .modal {
+      background: #18181b; border-radius: 20px; padding: 28px 24px;
+      max-width: 380px; width: 100%; height: 90vh;
+      box-shadow: 0 8px 48px rgba(0,0,0,.7);
+      display: flex; flex-direction: column; overflow: hidden;
+      transform: scale(.9) translateY(20px);
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+    }
+    .modal-overlay.show .modal { transform: scale(1) translateY(0); }
+    .modal-title { font-size: 16px; font-weight: 700; color: #fafafa; text-align: center; margin-bottom: 20px; }
+    .preview-wrap {
+      flex: 1; min-height: 0; aspect-ratio: 9/16; border-radius: 14px;
+      overflow: hidden; margin: 0 auto 24px; position: relative; background: #000;
+    }
+    #storyCard {
+      position: absolute; left: -9999px; top: 0;
+      width: 1080px; height: 1920px; background: #09090b;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: space-between; padding: 160px 100px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .story-header { display: flex; flex-direction: column; align-items: center; }
+    .story-body { display: flex; flex-direction: column; align-items: center; width: 100%; flex: 1; justify-content: center; }
+    .story-emoji { font-size: 140px; margin-bottom: 24px; }
+    .story-app { font-size: 36px; color: #52525b; font-weight: 600; margin-bottom: 0; letter-spacing: .05em; text-transform: uppercase; }
+    .story-judul { font-size: 72px; font-weight: 800; color: #fafafa; text-align: center; margin-bottom: 16px; line-height: 1.2; }
+    .story-sub { font-size: 40px; color: #71717a; text-align: center; margin-bottom: 40px; }
+    .story-hari { font-size: 180px; font-weight: 900; color: #e53e3e; letter-spacing: -.04em; line-height: 1; text-align: center; }
+    .story-hari-label { font-size: 56px; color: #71717a; text-align: center; margin-bottom: 40px; }
+    .story-divider { width: 120px; height: 4px; background: #27272a; border-radius: 2px; margin-bottom: 40px; }
+    .story-time-grid { display: flex; gap: 40px; }
+    .story-time-box { background: #18181b; border: 2px solid #27272a; border-radius: 28px; padding: 40px 48px; text-align: center; }
+    .story-time-val { font-size: 64px; font-weight: 800; color: #fafafa; display: block; }
+    .story-time-unit { font-size: 32px; color: #52525b; }
+    .story-tepatnya { background: #18181b; border-radius: 28px; padding: 32px 48px; font-size: 32px; color: #71717a; text-align: center; margin-top: 60px; width: 100%; }
+    .story-tepatnya span { font-weight: 700; color: #fafafa; }
+    .story-footer { font-size: 32px; color: #3f3f46; margin-top: 0; }
+    #previewImg { width: 100%; height: 100%; object-fit: contain; border-radius: 14px; display: block; }
+    .preview-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #52525b; font-size: 13px; }
+    .btn-download { width: 100%; height: 44px; background: #e53e3e; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; margin-bottom: 10px; transition: background .2s; }
+    .btn-download:hover { background: #c53030; }
+    .btn-close { width: 100%; height: 40px; background: transparent; color: #52525b; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; transition: color .2s; }
+    .btn-close:hover { color: #a1a1aa; }
 
-  .result.show {
-    max-height: 1000px;
-    opacity: 1;
-    margin-top: 28px;
-    border-top: 1px solid #27272a;
-    padding-top: 24px;
-    pointer-events: auto;
-  }
+    /* ── SEO: Hidden FAQ section (visible to crawlers, accessible to screen readers) ── */
+    .seo-faq {
+      position: absolute; width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+      border: 0;
+    }
+  </style>
 
-  @keyframes resultEntrance {
-    0% { transform: translateY(20px) scale(0.95); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
-  }
-
-  .result.show > * {
-    animation: resultEntrance 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  }
-
-  /* Stagger delays */
-  .result.show > *:nth-child(1) { animation-delay: 0.05s; }
-  .result.show > *:nth-child(2) { animation-delay: 0.1s; }
-  .result.show > *:nth-child(3) { animation-delay: 0.15s; }
-  .result.show > *:nth-child(4) { animation-delay: 0.2s; }
-  .result.show > *:nth-child(5) { animation-delay: 0.25s; }
-  .result.show > *:nth-child(6) { animation-delay: 0.3s; }
-  .result.show > *:nth-child(7) { animation-delay: 0.35s; }
-
-  .result-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #52525b;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  .hari {
-    font-size: 42px;
-    font-weight: 800;
-    color: #e53e3e;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 4px;
-    text-align: center;
-  }
-
-  .hari-label {
-    font-size: 14px;
-    color: #71717a;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .time-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .time-box {
-    background: #27272a;
-    border: 1px solid #3f3f46;
-    border-radius: 10px;
-    padding: 14px 10px;
-    text-align: center;
-  }
-
-  .time-val {
-    font-size: 20px;
-    font-weight: 800;
-    color: #fafafa;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  .time-unit {
-    font-size: 11px;
-    color: #71717a;
-  }
-
-  .tepatnya {
-    background: #27272a;
-    border-radius: 10px;
-    padding: 14px 16px;
-    font-size: 13px;
-    color: #71717a;
-    text-align: center;
-  }
-
-  .tepatnya span {
-    font-weight: 700;
-    color: #fafafa;
-  }
-
-  /* Share button */
-  .btn-share {
-    width: 100%;
-    height: 46px;
-    background: transparent;
-    color: #e53e3e;
-    border: 1.5px solid #e53e3e;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
-    margin-top: 14px;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-  .btn-share:hover { background: rgba(229,62,62,0.08); }
-
-  /* Modal overlay */
-  .modal-overlay {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 100;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-  .modal-overlay.show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .modal {
-    background: #18181b;
-    border-radius: 20px;
-    padding: 28px 24px;
-    max-width: 380px;
-    width: 100%;
-    height: 90vh;
-    box-shadow: 0 8px 48px rgba(0,0,0,0.7);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transform: scale(0.9) translateY(20px);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .modal-overlay.show .modal {
-    transform: scale(1) translateY(0);
-  }
-
-  .modal-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #fafafa;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  /* Story preview canvas wrapper */
-  .preview-wrap {
-    flex: 1;
-    min-height: 0;
-    aspect-ratio: 9/16;
-    border-radius: 14px;
-    overflow: hidden;
-    margin: 0 auto 24px;
-    position: relative;
-    background: #000;
-  }
-
-  /* The actual story card rendered to canvas */
-  #storyCard {
-    position: absolute;
-    left: -9999px;
-    top: 0;
-    width: 1080px;
-    height: 1920px;
-    background: #09090b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 320px 100px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-
-  .story-header { display: flex; flex-direction: column; align-items: center; }
-  .story-body { display: flex; flex-direction: column; align-items: center; width: 100%; flex: 1; justify-content: center; }
-
-  .story-emoji { font-size: 140px; margin-bottom: 48px; }
-  .story-app { font-size: 36px; color: #52525b; font-weight: 600; margin-bottom: 0px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .story-judul { font-size: 72px; font-weight: 800; color: #fafafa; text-align: center; margin-bottom: 16px; line-height: 1.2; }
-  .story-sub { font-size: 40px; color: #71717a; text-align: center; margin-bottom: 80px; }
-  .story-hari { font-size: 180px; font-weight: 900; color: #e53e3e; letter-spacing: -0.04em; line-height: 1; text-align: center; }
-  .story-hari-label { font-size: 56px; color: #71717a; text-align: center; margin-bottom: 100px; }
-  .story-divider { width: 120px; height: 4px; background: #27272a; border-radius: 2px; margin-bottom: 80px; }
-  .story-time-grid { display: flex; gap: 40px; }
-  .story-time-box { background: #18181b; border: 2px solid #27272a; border-radius: 28px; padding: 40px 48px; text-align: center; }
-  .story-time-val { font-size: 64px; font-weight: 800; color: #fafafa; display: block; }
-  .story-time-unit { font-size: 32px; color: #52525b; }
-  .story-tepatnya { background: #18181b; border-radius: 28px; padding: 32px 48px; font-size: 32px; color: #71717a; text-align: center; margin-top: 60px; width: 100%; }
-  .story-tepatnya span { font-weight: 700; color: #fafafa; }
-  .story-footer { font-size: 32px; color: #3f3f46; margin-top: 0; }
-
-  /* Preview image */
-  #previewImg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 14px;
-    display: block;
-  }
-
-  .preview-loading {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #52525b;
-    font-size: 13px;
-  }
-
-  .btn-download {
-    width: 100%;
-    height: 44px;
-    background: #e53e3e;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: background 0.2s;
-  }
-  .btn-download:hover { background: #c53030; }
-
-  .btn-close {
-    width: 100%;
-    height: 40px;
-    background: transparent;
-    color: #52525b;
-    border: none;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-  .btn-close:hover { color: #a1a1aa; }
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+          integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGE2/F8TfVoSHJ77RNePK9CCXMvJLzmA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 </head>
+
 <body>
-<div class="support-bar">
-  <a href="https://saweria.co/aryatim" target="_blank" class="support-link">
-    <span>☕</span> TRAKTIR DEVELOPER MBG
+  <!-- ── ACCESSIBILITY: skip-to-content ── -->
+  <a href="#main-content"
+     style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
+            background:#e53e3e;color:#fff;padding:8px 16px;border-radius:0 0 8px 8px;
+            text-decoration:none;font-weight:700;z-index:99999"
+     onfocus="this.style.left='0';this.style.width='auto';this.style.height='auto'"
+     onblur="this.style.left='-999px';this.style.width='1px';this.style.height='1px'">
+    Lewati ke konten utama
   </a>
-</div>
-<div class="card">
-  <h1>🍱 Kalkulator MBG</h1>
-  <p class="desc" style="margin-bottom: 5px;">1,2T Rupiah = 1 Hari MBG</p>
-  <p class="desc" style="margin-bottom: 20px;">Masukkan nominal untuk mengetahui setara berapa hari anggaran MBG.</p>
 
-  <label>Judul</label>
-  <div class="input-wrap">
-    <input type="text" id="judul" placeholder="Contoh: Gaji Saya" style="padding: 0 14px;">
+  <div class="support-bar" role="banner" aria-label="Dukung developer">
+    <a href="https://saweria.co/aryatim" target="_blank" rel="noopener noreferrer"
+       class="support-link" aria-label="Traktir developer Kalkulator MBG di Saweria">
+      <span aria-hidden="true">☕</span> TRAKTIR DEVELOPER MBG
+    </a>
   </div>
 
-  <label>Nominal (Rp)</label>
-  <div class="input-wrap">
-    <span class="prefix">Rp</span>
-    <input type="text" id="nominal" placeholder="Contoh: 5.000.000" inputmode="numeric">
-  </div>
+  <main id="main-content" role="main">
+    <div class="card">
+      <!-- ── H1 semantic heading ── -->
+      <h1>🍱 Kalkulator MBG</h1>
+      <p class="desc" style="margin-bottom:5px;">1,2T Rupiah = 1 Hari MBG</p>
+      <p class="desc" style="margin-bottom:20px;">
+        Masukkan nominal untuk mengetahui setara berapa hari anggaran MBG.
+      </p>
 
-  <button onclick="hitung()">Hitung</button>
-
-  <div class="result" id="result">
-    <div class="result-title">Hasil</div>
-    <div class="judul-label" id="judulLabel" style="display:none"></div>
-    <div class="judul-sub" id="judulSub" style="display:none">setara dengan</div>
-    <div class="hari" id="hariVal">0</div>
-    <div class="hari-label">Hari MBG</div>
-
-    <div class="time-grid">
-      <div class="time-box">
-        <span class="time-val" id="jamVal">0</span>
-        <span class="time-unit">Jam</span>
+      <label for="judul">Judul</label>
+      <div class="input-wrap">
+        <input type="text" id="judul" name="judul"
+               placeholder="Contoh: Gaji Saya"
+               aria-label="Judul nominal"
+               autocomplete="off"
+               style="padding:0 14px;">
       </div>
-      <div class="time-box">
-        <span class="time-val" id="menitVal">0</span>
-        <span class="time-unit">Menit</span>
+
+      <label for="nominal">Nominal (Rp)</label>
+      <div class="input-wrap">
+        <span class="prefix" aria-hidden="true">Rp</span>
+        <input type="text" id="nominal" name="nominal"
+               placeholder="Contoh: 5.000.000"
+               inputmode="numeric"
+               aria-label="Masukkan nominal dalam Rupiah"
+               autocomplete="off">
       </div>
-      <div class="time-box">
-        <span class="time-val" id="detikVal">0</span>
-        <span class="time-unit">Detik</span>
+
+      <button onclick="hitung()" type="button"
+              aria-label="Hitung setara hari MBG">
+        Hitung
+      </button>
+
+      <!-- Result -->
+      <div class="result" id="result" role="region" aria-live="polite" aria-label="Hasil perhitungan">
+        <div class="result-title">Hasil</div>
+        <div class="judul-label" id="judulLabel" style="display:none" aria-hidden="true"></div>
+        <div class="judul-sub"   id="judulSub"   style="display:none" aria-hidden="true">setara dengan</div>
+
+        <div class="hari"      id="hariVal"  aria-label="Jumlah hari">0</div>
+        <div class="hari-label">Hari MBG</div>
+
+        <div class="hari"      id="siswaVal" style="color:#fafafa;margin-top:24px" aria-label="Jumlah siswa">0</div>
+        <div class="hari-label">Siswa</div>
+
+        <div class="time-grid" role="list" aria-label="Rincian waktu">
+          <div class="time-box" role="listitem">
+            <span class="time-val" id="jamVal">0</span>
+            <span class="time-unit">Jam</span>
+          </div>
+          <div class="time-box" role="listitem">
+            <span class="time-val" id="menitVal">0</span>
+            <span class="time-unit">Menit</span>
+          </div>
+          <div class="time-box" role="listitem">
+            <span class="time-val" id="detikVal">0</span>
+            <span class="time-unit">Detik</span>
+          </div>
+        </div>
+
+        <div class="tepatnya">
+          Tepatnya <span id="tepatnya">0 detik</span>
+        </div>
+        <button class="btn-share" onclick="openShare()" type="button"
+                aria-label="Bagikan hasil ke Instagram atau WhatsApp Story">
+          📤 Share to Story
+        </button>
       </div>
     </div>
 
-    <div class="tepatnya">
-      Tepatnya <span id="tepatnya">0 detik</span>
-    </div>
-    <button class="btn-share" onclick="openShare()">📤 Share to Story</button>
-  </div>
-</div>
+    <!-- ── SEO: FAQ content (screen-reader accessible, indexed by Google) ── -->
+    <section class="seo-faq" aria-label="Pertanyaan umum tentang Kalkulator MBG">
+      <h2>Pertanyaan Umum</h2>
+      <dl>
+        <dt>Berapa anggaran program Makan Bergizi Gratis (MBG) per hari?</dt>
+        <dd>Anggaran program Makan Bergizi Gratis (MBG) adalah Rp 1,2 Triliun per hari.</dd>
+        <dt>Apa itu program Makan Bergizi Gratis?</dt>
+        <dd>Program Makan Bergizi Gratis (MBG) adalah program pemerintah Indonesia yang memberikan makanan bergizi secara gratis kepada siswa sekolah.</dd>
+        <dt>Bagaimana cara menggunakan Kalkulator MBG?</dt>
+        <dd>Masukkan judul dan nominal uang dalam Rupiah, lalu klik tombol Hitung untuk melihat hasilnya.</dd>
+      </dl>
+    </section>
+  </main>
 
-<script>
-  const BUDGET_PER_HARI = 1_200_000_000_000;
+  <script>
+    const BUDGET_PER_HARI = 1_200_000_000_000;
+    const input = document.getElementById('nominal');
 
-  const input = document.getElementById('nominal');
+    input.addEventListener('input', function() {
+      const raw = this.value.replace(/\D/g,'');
+      this.value = raw ? new Intl.NumberFormat('id-ID').format(raw) : '';
+      document.getElementById('result').classList.remove('show');
+    });
+    document.getElementById('judul').addEventListener('input', function() {
+      document.getElementById('result').classList.remove('show');
+    });
+    input.addEventListener('keydown', function(e){ if(e.key==='Enter') hitung(); });
 
-  input.addEventListener('input', function() {
-    const raw = this.value.replace(/\D/g, '');
-    this.value = raw ? new Intl.NumberFormat('id-ID').format(raw) : '';
-    document.getElementById('result').classList.remove('show');
-  });
-
-  document.getElementById('judul').addEventListener('input', function() {
-    document.getElementById('result').classList.remove('show');
-  });
-
-  input.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') hitung();
-  });
-
-  /**
-   * Format angka besar menjadi singkatan:
-   * < 1000         → angka desimal biasa (mis. 0.000123)
-   * 1.000–999.999  → Rb (ribu)
-   * 1.000.000–...  → Jt (juta)
-   * 1 M – ...      → M  (miliar)
-   * 1 T – ...      → T  (triliun)
-   * 1 Kd – ...     → Kd (kuadriliun)
-   * dst.
-   *
-   * Selalu tampilkan hingga 4 angka signifikan, hapus trailing zeros.
-   */
-  const SCALES = [
-    { limit: 1e15, suffix: 'Kd' },   // kuadriliun
-    { limit: 1e12, suffix: 'T'  },   // triliun
-    { limit: 1e9,  suffix: 'M'  },   // miliar
-    { limit: 1e6,  suffix: 'Jt' },   // juta
-    { limit: 1e3,  suffix: 'Rb' },   // ribu
-  ];
-
-  function fmtShort(n) {
-    if (n === 0) return '0';
-
-    // Angka sangat kecil (< 1): tampilkan desimal signifikan
-    if (n < 1) {
-      const str = n.toFixed(20).replace(/0+$/, '');
-      const match = str.match(/^0\.(0*)(\d{1,4})/);
-      if (match) return '0.' + match[1] + match[2];
-      return parseFloat(n.toPrecision(4)).toString();
+    const SCALES=[
+      {limit:1e15,suffix:'Kd'},{limit:1e12,suffix:'T'},
+      {limit:1e9,suffix:'M'},{limit:1e6,suffix:'Jt'},{limit:1e3,suffix:'Rb'}
+    ];
+    function fmtShort(n){
+      if(n===0)return'0';
+      if(n<1){const str=n.toFixed(20).replace(/0+$/,'');const m=str.match(/^0\.(0*)(\d{1,4})/);if(m)return'0.'+m[1]+m[2];return parseFloat(n.toPrecision(4)).toString();}
+      if(n<1e3){const v=parseFloat(n.toPrecision(4));return v.toLocaleString('id-ID',{maximumFractionDigits:4});}
+      for(const{limit,suffix}of SCALES){if(n>=limit){const v=n/limit;return parseFloat(v.toPrecision(4)).toLocaleString('id-ID',{maximumFractionDigits:2})+' '+suffix;}}
+      return parseFloat(n.toPrecision(4)).toLocaleString('id-ID',{maximumFractionDigits:4});
     }
-
-    // Angka < 1000: tampilkan desimal biasa (maks 4 sig fig)
-    if (n < 1e3) {
-      const val = parseFloat(n.toPrecision(4));
-      return val.toLocaleString('id-ID', { maximumFractionDigits: 4 });
+    function adjustFontSize(el,baseSize,threshold){
+      if(!el)return;
+      const len=el.textContent.length;
+      el.style.fontSize=(len>threshold?Math.max(baseSize*(threshold/len),baseSize*.5):baseSize)+'px';
     }
-
-    // Cari skala yang cocok (dari terbesar ke terkecil)
-    for (const { limit, suffix } of SCALES) {
-      if (n >= limit) {
-        const val = n / limit;
-        // Maks 2 desimal, hapus trailing zeros
-        const formatted = parseFloat(val.toPrecision(4))
-          .toLocaleString('id-ID', { maximumFractionDigits: 2 });
-        return formatted + ' ' + suffix;
+    function hitung(){
+      const raw=document.getElementById('nominal').value.replace(/\D/g,'');
+      const nominal=parseFloat(raw)||0;
+      const hari=nominal/BUDGET_PER_HARI;
+      const totalJam=hari*24,totalMenit=hari*24*60,totalDetik=hari*24*3600;
+      const totalSiswa=Math.floor(nominal/10000);
+      const elHari=document.getElementById('hariVal'),elJam=document.getElementById('jamVal');
+      const elMenit=document.getElementById('menitVal'),elDetik=document.getElementById('detikVal');
+      const elSiswa=document.getElementById('siswaVal');
+      elHari.textContent=fmtShort(hari);elJam.textContent=fmtShort(totalJam);
+      elMenit.textContent=fmtShort(totalMenit);elDetik.textContent=fmtShort(totalDetik);
+      elSiswa.textContent=new Intl.NumberFormat('id-ID').format(totalSiswa);
+      document.getElementById('tepatnya').textContent=fmtShort(totalDetik)+' detik';
+      adjustFontSize(elHari,42,8);adjustFontSize(elSiswa,42,8);
+      adjustFontSize(elJam,20,8);adjustFontSize(elMenit,20,8);adjustFontSize(elDetik,20,8);
+      const judul=document.getElementById('judul').value.trim();
+      const judulLabel=document.getElementById('judulLabel'),judulSub=document.getElementById('judulSub');
+      if(judul){judulLabel.textContent=judul;judulLabel.style.display='block';judulSub.style.display='block';}
+      else{judulLabel.style.display='none';judulSub.style.display='none';}
+      const resultEl=document.getElementById('result');
+      const wasShowing=resultEl.classList.contains('show');
+      resultEl.classList.add('show');
+      if(!wasShowing&&nominal>0){
+        const count=200,defaults={origin:{y:.7},colors:['#e53e3e','#ffffff','#71717a']};
+        const fire=(r,o)=>confetti({...defaults,...o,particleCount:Math.floor(count*r)});
+        fire(.25,{spread:26,startVelocity:55});fire(.2,{spread:60});
+        fire(.35,{spread:100,decay:.91,scalar:.8});fire(.1,{spread:120,startVelocity:25,decay:.92,scalar:1.2});
+        fire(.1,{spread:120,startVelocity:45});
       }
+      animateValue(elHari,0,hari,1000);animateValue(elJam,0,totalJam,1000);
+      animateValue(elMenit,0,totalMenit,1000);animateValue(elDetik,0,totalDetik,1000);
+      animateValue(elSiswa,0,totalSiswa,1000,true);
+
+      // Update dynamic OG for social crawlers (best-effort)
+      document.title = `${document.getElementById('judul').value.trim()||'Nominalmu'} = ${fmtShort(hari)} Hari MBG | Kalkulator MBG`;
     }
-
-    return parseFloat(n.toPrecision(4)).toLocaleString('id-ID', { maximumFractionDigits: 4 });
-  }
-
-  /**
-   * Format khusus untuk hari — bisa sangat kecil (< 1)
-   * atau sangat besar, gunakan fmtShort.
-   */
-  function fmtHari(n) {
-    return fmtShort(n);
-  }
-
-  function adjustFontSize(el, baseSize, threshold) {
-    if (!el) return;
-    const len = el.textContent.length;
-    if (len > threshold) {
-      const newSize = baseSize * (threshold / len);
-      el.style.fontSize = Math.max(newSize, baseSize * 0.5) + (el.id.startsWith('sc') || el.id.startsWith('hari') || el.classList.contains('time-val') || el.classList.contains('story-time-val') ? 'px' : '');
-      // Just use px for simplicity if it's already px
-      el.style.fontSize = Math.max(newSize, baseSize * 0.5) + 'px';
-    } else {
-      el.style.fontSize = baseSize + 'px';
-    }
-  }
-
-  function hitung() {
-    const raw = document.getElementById('nominal').value.replace(/\D/g, '');
-    const nominal = parseFloat(raw) || 0;
-
-    const hari        = nominal / BUDGET_PER_HARI;
-    const totalJam    = hari * 24;
-    const totalMenit  = hari * 24 * 60;
-    const totalDetik  = hari * 24 * 3600;
-
-    const elHari = document.getElementById('hariVal');
-    const elJam = document.getElementById('jamVal');
-    const elMenit = document.getElementById('menitVal');
-    const elDetik = document.getElementById('detikVal');
-
-    elHari.textContent  = fmtShort(hari);
-    elJam.textContent   = fmtShort(totalJam);
-    elMenit.textContent = fmtShort(totalMenit);
-    elDetik.textContent = fmtShort(totalDetik);
-    document.getElementById('tepatnya').textContent = fmtShort(totalDetik) + ' detik';
-
-    adjustFontSize(elHari, 42, 8);
-    adjustFontSize(elJam, 20, 8);
-    adjustFontSize(elMenit, 20, 8);
-    adjustFontSize(elDetik, 20, 8);
-
-    const judul = document.getElementById('judul').value.trim();
-    const judulLabel = document.getElementById('judulLabel');
-    const judulSub   = document.getElementById('judulSub');
-    if (judul) {
-      judulLabel.textContent = judul;
-      judulLabel.style.display = 'block';
-      judulSub.style.display   = 'block';
-    } else {
-      judulLabel.style.display = 'none';
-      judulSub.style.display   = 'none';
-    }
-
-    const resultEl = document.getElementById('result');
-    const wasShowing = resultEl.classList.contains('show');
-    resultEl.classList.add('show');
-
-    // Trigger confetti for a festive feel
-    if (!wasShowing && nominal > 0) {
-      const count = 200;
-      const defaults = {
-        origin: { y: 0.7 },
-        colors: ['#e53e3e', '#ffffff', '#71717a']
+    function animateValue(el,start,end,duration,isInteger=false){
+      let ts=null;
+      const step=(t)=>{
+        if(!ts)ts=t;
+        const p=Math.min((t-ts)/duration,1),v=start+p*(end-start);
+        el.textContent=isInteger?new Intl.NumberFormat('id-ID').format(Math.floor(v)):fmtShort(v);
+        if(p<1)window.requestAnimationFrame(step);
+        else el.textContent=isInteger?new Intl.NumberFormat('id-ID').format(Math.floor(end)):fmtShort(end);
       };
-
-      function fire(particleRatio, opts) {
-        confetti({
-          ...defaults,
-          ...opts,
-          particleCount: Math.floor(count * particleRatio)
-        });
-      }
-
-      fire(0.25, { spread: 26, startVelocity: 55 });
-      fire(0.2, { spread: 60 });
-      fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-      fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
-      fire(0.1, { spread: 120, startVelocity: 45 });
+      window.requestAnimationFrame(step);
     }
 
-    // Animate the main values for a smoother feel
-    animateValue(elHari, 0, hari, 1000);
-    animateValue(elJam, 0, totalJam, 1000);
-    animateValue(elMenit, 0, totalMenit, 1000);
-    animateValue(elDetik, 0, totalDetik, 1000);
-  }
-
-  function animateValue(el, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const currentVal = start + progress * (end - start);
-      el.textContent = fmtShort(currentVal);
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      } else {
-        el.textContent = fmtShort(end);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }
-
-  // ── Share / Story ──────────────────────────────────────────────
-  let storyDataUrl = null;
-
-  function syncStoryCard() {
-    const scHari = document.getElementById('sc-hari');
-    const scJam = document.getElementById('sc-jam');
-    const scMenit = document.getElementById('sc-menit');
-    const scDetik = document.getElementById('sc-detik');
-
-    scHari.textContent  = document.getElementById('hariVal').textContent;
-    scJam.textContent   = document.getElementById('jamVal').textContent;
-    scMenit.textContent = document.getElementById('menitVal').textContent;
-    scDetik.textContent = document.getElementById('detikVal').textContent;
-
-    adjustFontSize(scHari, 180, 8);
-    adjustFontSize(scJam, 64, 6);
-    adjustFontSize(scMenit, 64, 6);
-    adjustFontSize(scDetik, 64, 6);
-    const scTepatnya = document.getElementById('sc-tepatnya');
-    scTepatnya.textContent = document.getElementById('tepatnya').textContent;
-    adjustFontSize(scTepatnya, 32, 20);
-    const judul   = document.getElementById('judul').value.trim();
-    const sc_judul = document.getElementById('sc-judul');
-    const sc_sub   = document.getElementById('sc-sub');
-    if (judul) {
-      sc_judul.textContent = judul;
-      sc_judul.style.display = 'block';
-      sc_sub.textContent     = 'setara dengan';
-      sc_sub.style.display   = 'block';
-    } else {
-      sc_judul.style.display = 'none';
-      sc_sub.style.display   = 'none';
+    // ── Share ──
+    let storyDataUrl=null;
+    function syncStoryCard(){
+      const get=id=>document.getElementById(id);
+      get('sc-hari').textContent=get('hariVal').textContent;
+      get('sc-siswa').textContent=get('siswaVal').textContent;
+      get('sc-jam').textContent=get('jamVal').textContent;
+      get('sc-menit').textContent=get('menitVal').textContent;
+      get('sc-detik').textContent=get('detikVal').textContent;
+      adjustFontSize(get('sc-hari'),180,8);adjustFontSize(get('sc-siswa'),180,8);
+      adjustFontSize(get('sc-jam'),64,6);adjustFontSize(get('sc-menit'),64,6);adjustFontSize(get('sc-detik'),64,6);
+      get('sc-tepatnya').textContent=get('tepatnya').textContent;
+      adjustFontSize(get('sc-tepatnya'),32,20);
+      const judul=document.getElementById('judul').value.trim();
+      if(judul){get('sc-judul').textContent=judul;get('sc-judul').style.display='block';get('sc-sub').textContent='setara dengan';get('sc-sub').style.display='block';}
+      else{get('sc-judul').style.display='none';get('sc-sub').style.display='none';}
     }
-  }
-
-  async function openShare() {
-    document.getElementById('modalOverlay').classList.add('show');
-    document.getElementById('previewLoading').style.display = 'flex';
-    document.getElementById('previewImg').style.display = 'none';
-    storyDataUrl = null;
-    syncStoryCard();
-    await new Promise(r => setTimeout(r, 100));
-    try {
-      const canvas = await html2canvas(document.getElementById('storyCard'), {
-        width: 1080, height: 1920, scale: 0.35,
-        backgroundColor: '#09090b', useCORS: true, logging: false
-      });
-      storyDataUrl = canvas.toDataURL('image/png');
-      document.getElementById('previewImg').src = storyDataUrl;
-      document.getElementById('previewImg').style.display = 'block';
-      document.getElementById('previewLoading').style.display = 'none';
-    } catch(e) {
-      document.getElementById('previewLoading').textContent = 'Gagal membuat preview.';
+    async function openShare(){
+      document.getElementById('modalOverlay').classList.add('show');
+      document.getElementById('previewLoading').style.display='flex';
+      document.getElementById('previewImg').style.display='none';
+      storyDataUrl=null;syncStoryCard();
+      await new Promise(r=>setTimeout(r,100));
+      try{
+        const canvas=await html2canvas(document.getElementById('storyCard'),{width:1080,height:1920,scale:.35,backgroundColor:'#09090b',useCORS:true,logging:false});
+        storyDataUrl=canvas.toDataURL('image/png');
+        document.getElementById('previewImg').src=storyDataUrl;
+        document.getElementById('previewImg').style.display='block';
+        document.getElementById('previewLoading').style.display='none';
+      }catch(e){document.getElementById('previewLoading').textContent='Gagal membuat preview.';}
     }
-  }
-
-  function closeModal(e) {
-    if (e.target === document.getElementById('modalOverlay'))
-      document.getElementById('modalOverlay').classList.remove('show');
-  }
-
-  function getShareText() {
-    const judul = document.getElementById('judul').value.trim();
-    const hari  = document.getElementById('hariVal').textContent;
-    const nom   = document.getElementById('nominal').value;
-    const base  = judul
-      ? `${judul} (Rp ${nom}) setara ${hari} hari anggaran MBG 🍱`
-      : `Rp ${nom} setara ${hari} hari anggaran MBG 🍱`;
-    return encodeURIComponent(base + '\n\nCek di: kalkulatormbg.vercel.app');
-  }
-
-  function downloadStory() {
-    if (!storyDataUrl) return alert('Preview belum siap.');
-    const a = document.createElement('a');
-    a.href = storyDataUrl;
-    a.download = 'mbg-story.png';
-    a.click();
-  }
-
-  async function shareNative() {
-    if (!storyDataUrl) return alert('Preview belum siap.');
-    try {
-      const res  = await fetch(storyDataUrl);
-      const blob = await res.blob();
-      const file = new File([blob], 'mbg-story.png', { type: 'image/png' });
-      if (navigator.share && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'Kalkulator MBG', text: decodeURIComponent(getShareText()) });
-      } else if (navigator.share) {
-        await navigator.share({ title: 'Kalkulator MBG', text: decodeURIComponent(getShareText()) });
-      } else {
-        downloadStory();
-      }
-    } catch(e) {
-      if (e.name !== 'AbortError') downloadStory();
+    function closeModal(e){if(e.target===document.getElementById('modalOverlay'))document.getElementById('modalOverlay').classList.remove('show');}
+    function getShareText(){
+      const judul=document.getElementById('judul').value.trim();
+      const hari=document.getElementById('hariVal').textContent;
+      const nom=document.getElementById('nominal').value;
+      const base=judul?`${judul} (Rp ${nom}) setara ${hari} hari anggaran MBG 🍱`:`Rp ${nom} setara ${hari} hari anggaran MBG 🍱`;
+      return encodeURIComponent(base+'\n\nCek di: kalkulatormbg.vercel.app');
     }
-  }
-</script>
+    function downloadStory(){if(!storyDataUrl)return alert('Preview belum siap.');const a=document.createElement('a');a.href=storyDataUrl;a.download='mbg-story.png';a.click();}
+    async function shareNative(){
+      if(!storyDataUrl)return alert('Preview belum siap.');
+      try{
+        const res=await fetch(storyDataUrl),blob=await res.blob();
+        const file=new File([blob],'mbg-story.png',{type:'image/png'});
+        if(navigator.share&&navigator.canShare({files:[file]}))await navigator.share({files:[file],title:'Kalkulator MBG',text:decodeURIComponent(getShareText())});
+        else if(navigator.share)await navigator.share({title:'Kalkulator MBG',text:decodeURIComponent(getShareText())});
+        else downloadStory();
+      }catch(e){if(e.name!=='AbortError')downloadStory();}
+    }
+  </script>
 
-<!-- Hidden story card for html2canvas rendering -->
-<div id="storyCard">
-  <div class="story-header">
-    <div class="story-emoji">🍱</div>
-    <div class="story-app">Kalkulator MBG</div>
-  </div>
-  
-  <div class="story-body">
-    <div class="story-judul" id="sc-judul"></div>
-    <div class="story-sub"   id="sc-sub"></div>
-    <div class="story-hari"  id="sc-hari">0</div>
-    <div class="story-hari-label">Hari MBG</div>
-    <div class="story-divider"></div>
-    <div class="story-time-grid">
-      <div class="story-time-box"><span class="story-time-val" id="sc-jam">0</span><span class="story-time-unit">Jam</span></div>
-      <div class="story-time-box"><span class="story-time-val" id="sc-menit">0</span><span class="story-time-unit">Menit</span></div>
-      <div class="story-time-box"><span class="story-time-val" id="sc-detik">0</span><span class="story-time-unit">Detik</span></div>
+  <!-- Hidden story card for html2canvas -->
+  <div id="storyCard" aria-hidden="true">
+    <div class="story-header">
+      <div class="story-emoji">🍱</div>
+      <div class="story-app">Kalkulator MBG</div>
     </div>
-    <div class="story-tepatnya">Tepatnya <span id="sc-tepatnya">0 detik</span></div>
+    <div class="story-body">
+      <div class="story-judul" id="sc-judul"></div>
+      <div class="story-sub"   id="sc-sub"></div>
+      <div class="story-hari"  id="sc-hari">0</div>
+      <div class="story-hari-label">Hari MBG</div>
+      <div class="story-hari"  id="sc-siswa" style="color:#fafafa;margin-top:30px">0</div>
+      <div class="story-hari-label">Siswa</div>
+      <div class="story-divider" style="margin-top:40px"></div>
+      <div class="story-time-grid">
+        <div class="story-time-box"><span class="story-time-val" id="sc-jam">0</span><span class="story-time-unit">Jam</span></div>
+        <div class="story-time-box"><span class="story-time-val" id="sc-menit">0</span><span class="story-time-unit">Menit</span></div>
+        <div class="story-time-box"><span class="story-time-val" id="sc-detik">0</span><span class="story-time-unit">Detik</span></div>
+      </div>
+      <div class="story-tepatnya">Tepatnya <span id="sc-tepatnya">0 detik</span></div>
+    </div>
+    <div class="story-footer">kalkulatormbg.vercel.app</div>
   </div>
 
-  <div class="story-footer">kalkulatormbg.vercel.app</div>
-</div>
-
-<!-- Share modal -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal">
-    <div class="modal-title">📤 Bagikan ke Story</div>
-    <div class="preview-wrap">
-      <div class="preview-loading" id="previewLoading">Membuat preview...</div>
-      <img id="previewImg" style="display:none" alt="Story preview">
+  <!-- Share modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)"
+       role="dialog" aria-modal="true" aria-label="Bagikan ke Story">
+    <div class="modal">
+      <div class="modal-title">📤 Bagikan ke Story</div>
+      <div class="preview-wrap">
+        <div class="preview-loading" id="previewLoading">Membuat preview...</div>
+        <img id="previewImg" style="display:none" alt="Preview story Kalkulator MBG">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+        <button class="btn-download" onclick="downloadStory()" type="button">⬇️ Download</button>
+        <button class="btn-download" style="background:#27272a;border:1.5px solid #3f3f46"
+                onclick="shareNative()" type="button">↗️ Share</button>
+      </div>
+      <button class="btn-close" type="button"
+              onclick="document.getElementById('modalOverlay').classList.remove('show')"
+              aria-label="Tutup modal">Tutup</button>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-      <button class="btn-download" onclick="downloadStory()">⬇️ Download</button>
-      <button class="btn-download" style="background:#27272a;border:1.5px solid #3f3f46" onclick="shareNative()">↗️ Share</button>
-    </div>
-    <button class="btn-close" onclick="document.getElementById('modalOverlay').classList.remove('show')">Tutup</button>
   </div>
-</div>
-
 </body>
 </html>

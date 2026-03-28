@@ -1,0 +1,53 @@
+{
+  "name": "Kalkulator MBG",
+  "short_name": "Kalkulator MBG",
+  "description": "Hitung setara berapa hari anggaran Makan Bergizi Gratis dari nominalmu. 1,2 Triliun Rupiah = 1 Hari MBG.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#e53e3e",
+  "lang": "id-ID",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot.png",
+      "sizes": "420x900",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Kalkulator MBG – Halaman utama"
+    }
+  ],
+  "categories": ["utilities", "finance", "education"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
