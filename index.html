@@ -103,6 +103,14 @@
   <meta name="msapplication-config"    content="/browserconfig.xml">
 
   <!-- ═══════════════════════════════════════════════════════════════════
+       GOOGLE FONTS — dipakai di storyCard agar html2canvas bisa render
+       dengan benar (system font tidak bisa di-capture html2canvas)
+  ═══════════════════════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
        JSON-LD STRUCTURED DATA
        1. WebApplication  — ditangkap Google sebagai Rich Result "App"
        2. FAQPage         — ditangkap Google sebagai FAQ Rich Snippet
@@ -234,44 +242,25 @@
   <!-- ═══════════════════════════════════════════════════════════════════
        PERFORMANCE & RESOURCE HINTS
   ═══════════════════════════════════════════════════════════════════ -->
-  <!-- Preconnect ke CDN eksternal -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  <!-- Preload aset kritis -->
   <link rel="preload" as="script"
         href="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         crossorigin="anonymous">
 
-  <!-- DNS prefetch -->
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://saweria.co">
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SITEMAP & INDEXING HINTS
-  ═══════════════════════════════════════════════════════════════════ -->
-  <!-- Daftarkan sitemap via HTTP header atau file /sitemap.xml
-       Contoh isi sitemap.xml:
-       <?xml version="1.0" encoding="UTF-8"?>
-       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-         <url>
-           <loc>https://kalkulatormbg.vercel.app/</loc>
-           <lastmod>2025-01-01</lastmod>
-           <changefreq>monthly</changefreq>
-           <priority>1.0</priority>
-         </url>
-       </urlset>
-  -->
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       STYLES (tidak berubah dari versi original)
+       STYLES
   ═══════════════════════════════════════════════════════════════════ -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: #09090b;
       min-height: 100vh;
       display: flex;
@@ -329,7 +318,8 @@
     input[type="text"] {
       border: none; outline: none; background: transparent;
       padding: 0 14px; height: 46px; font-size: 16px; font-weight: 600;
-      color: #fafafa; width: 100%; font-family: inherit;
+      color: #fafafa; width: 100%;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
     input::placeholder { color: #52525b; font-weight: 400; }
 
@@ -339,7 +329,8 @@
     button {
       width: 100%; height: 46px; background: #e53e3e; color: #fff;
       border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
-      font-family: inherit; cursor: pointer; transition: background .2s;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      cursor: pointer; transition: background .2s;
     }
     button:hover { background: #c53030; }
 
@@ -375,8 +366,8 @@
     .hari { font-size: 42px; font-weight: 800; color: #e53e3e; letter-spacing: -.02em; line-height: 1; margin-bottom: 4px; text-align: center; }
     .hari-label { font-size: 14px; color: #71717a; margin-bottom: 24px; text-align: center; }
 
-    .time-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 20px; }
-    .time-box { background: #27272a; border: 1px solid #3f3f46; border-radius: 10px; padding: 14px 10px; text-align: center; }
+    .time-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 20px; width: 100%; }
+    .time-box { background: #27272a; border: 1px solid #3f3f46; border-radius: 10px; padding: 12px 4px; text-align: center; overflow: hidden; }
     .time-val { font-size: 20px; font-weight: 800; color: #fafafa; display: block; margin-bottom: 2px; }
     .time-unit { font-size: 11px; color: #71717a; }
 
@@ -386,7 +377,9 @@
     .btn-share {
       width: 100%; height: 46px; background: transparent;
       color: #e53e3e; border: 1.5px solid #e53e3e; border-radius: 10px;
-      font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;
+      font-size: 15px; font-weight: 700;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      cursor: pointer;
       margin-top: 14px; transition: all .2s;
       display: flex; align-items: center; justify-content: center; gap: 8px;
     }
@@ -415,38 +408,101 @@
     .preview-wrap {
       flex: 1; min-height: 0; aspect-ratio: 9/16; border-radius: 14px;
       overflow: hidden; margin: 0 auto 24px; position: relative; background: #000;
+      width: 100%;
     }
+
+    /* ── FIX: storyCard disembunyikan dengan fixed + visibility:hidden
+       agar html2canvas tetap bisa render layoutnya dengan benar,
+       berbeda dengan left:-9999px yang kadang bermasalah di beberapa browser ── */
     #storyCard {
-      position: absolute; left: -9999px; top: 0;
-      width: 1080px; height: 1920px; background: #09090b;
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: space-between; padding: 160px 100px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      position: fixed;
+      left: -9999px;
+      top: -9999px; /* Jauhkan dari layar */
+      /* KRITIS: JANGAN opacity:0 — html2canvas bisa capture elemen sebagai transparan.
+         Gunakan visibility:visible agar dirender, letakkan jauh di luar layar. */
+      opacity: 1;
+      pointer-events: none;
+      /* Ukuran asli 1080x1920 — html2canvas akan scale sendiri */
+      width: 1080px;
+      height: 1920px;
+      background: #09090b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 160px 100px;
+      /* FIX: gunakan font yang bisa di-load html2canvas */
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
+
     .story-header { display: flex; flex-direction: column; align-items: center; }
     .story-body { display: flex; flex-direction: column; align-items: center; width: 100%; flex: 1; justify-content: center; }
     .story-emoji { font-size: 140px; margin-bottom: 24px; }
-    .story-app { font-size: 36px; color: #52525b; font-weight: 600; margin-bottom: 0; letter-spacing: .05em; text-transform: uppercase; }
-    .story-judul { font-size: 72px; font-weight: 800; color: #fafafa; text-align: center; margin-bottom: 16px; line-height: 1.2; }
-    .story-sub { font-size: 40px; color: #71717a; text-align: center; margin-bottom: 40px; }
-    .story-hari { font-size: 180px; font-weight: 900; color: #e53e3e; letter-spacing: -.04em; line-height: 1; text-align: center; }
-    .story-hari-label { font-size: 56px; color: #71717a; text-align: center; margin-bottom: 40px; }
+    .story-app { font-size: 36px; color: #52525b; font-weight: 600; margin-bottom: 0; letter-spacing: .05em; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .story-judul { font-size: 72px; font-weight: 800; color: #fafafa; text-align: center; margin-bottom: 16px; line-height: 1.2; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .story-sub { font-size: 40px; color: #71717a; text-align: center; margin-bottom: 20px; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .story-nominal { font-size: 64px; font-weight: 800; color: #fafafa; text-align: center; margin-bottom: 40px; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .story-hari { font-size: 180px; font-weight: 900; color: #e53e3e; letter-spacing: -.04em; line-height: 1; text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .story-hari-label { font-size: 56px; color: #71717a; text-align: center; margin-bottom: 40px; font-family: 'Plus Jakarta Sans', sans-serif; }
     .story-divider { width: 120px; height: 4px; background: #27272a; border-radius: 2px; margin-bottom: 40px; }
-    .story-time-grid { display: flex; gap: 40px; }
-    .story-time-box { background: #18181b; border: 2px solid #27272a; border-radius: 28px; padding: 40px 48px; text-align: center; }
-    .story-time-val { font-size: 64px; font-weight: 800; color: #fafafa; display: block; }
-    .story-time-unit { font-size: 32px; color: #52525b; }
-    .story-tepatnya { background: #18181b; border-radius: 28px; padding: 32px 48px; font-size: 32px; color: #71717a; text-align: center; margin-top: 60px; width: 100%; }
+    .story-time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; width: 100%; }
+    .story-time-box { background: #18181b; border: 2px solid #27272a; border-radius: 28px; padding: 32px 24px; text-align: center; }
+    .story-time-val { font-size: 64px; font-weight: 800; color: #fafafa; display: block; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .story-time-unit { font-size: 32px; color: #52525b; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .story-tepatnya { background: #18181b; border-radius: 28px; padding: 32px 48px; font-size: 32px; color: #71717a; text-align: center; margin-top: 60px; width: 100%; font-family: 'Plus Jakarta Sans', sans-serif; }
     .story-tepatnya span { font-weight: 700; color: #fafafa; }
-    .story-footer { font-size: 32px; color: #3f3f46; margin-top: 0; }
+    .story-footer {
+      width: calc(100% + 200px); /* kompensasi padding parent 100px kiri-kanan */
+      margin-left: -100px;
+      margin-bottom: -160px; /* kompensasi padding bottom parent */
+      background: #e53e3e;
+      padding: 48px 100px;
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .story-footer-url {
+      font-size: 38px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: .01em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      text-align: center;
+    }
+
     #previewImg { width: 100%; height: 100%; object-fit: contain; border-radius: 14px; display: block; }
-    .preview-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #52525b; font-size: 13px; }
-    .btn-download { width: 100%; height: 44px; background: #e53e3e; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; margin-bottom: 10px; transition: background .2s; }
+    .preview-loading {
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center;
+      color: #52525b; font-size: 13px;
+      flex-direction: column; gap: 12px;
+    }
+    .preview-spinner {
+      width: 28px; height: 28px;
+      border: 3px solid #3f3f46;
+      border-top-color: #e53e3e;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .btn-download {
+      width: 100%; height: 44px; background: #e53e3e; color: #fff;
+      border: none; border-radius: 10px; font-size: 14px; font-weight: 700;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      cursor: pointer; margin-bottom: 10px; transition: background .2s;
+    }
     .btn-download:hover { background: #c53030; }
-    .btn-close { width: 100%; height: 40px; background: transparent; color: #52525b; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; transition: color .2s; }
+    .btn-download:disabled { opacity: .5; cursor: not-allowed; }
+
+    .btn-close {
+      width: 100%; height: 40px; background: transparent; color: #52525b;
+      border: none; border-radius: 10px; font-size: 13px; font-weight: 600;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      cursor: pointer; transition: color .2s;
+    }
     .btn-close:hover { color: #a1a1aa; }
 
-    /* ── SEO: Hidden FAQ section (visible to crawlers, accessible to screen readers) ── */
+    /* ── SEO: Hidden FAQ section ── */
     .seo-faq {
       position: absolute; width: 1px; height: 1px;
       overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
@@ -454,8 +510,9 @@
     }
   </style>
 
+  <!-- html2canvas dimuat lebih awal tanpa defer agar siap saat dibutuhkan -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
-          crossorigin="anonymous" defer></script>
+          crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 </head>
 
@@ -479,7 +536,6 @@
 
   <main id="main-content" role="main">
     <div class="card">
-      <!-- ── H1 semantic heading ── -->
       <h1>🍱 Kalkulator MBG</h1>
       <p class="desc" style="margin-bottom:5px;">1,2T Rupiah = 1 Hari MBG</p>
       <p class="desc" style="margin-bottom:20px;">
@@ -547,7 +603,7 @@
       </div>
     </div>
 
-    <!-- ── SEO: FAQ content (screen-reader accessible, indexed by Google) ── -->
+    <!-- ── SEO: FAQ content ── -->
     <section class="seo-faq" aria-label="Pertanyaan umum tentang Kalkulator MBG">
       <h2>Pertanyaan Umum</h2>
       <dl>
@@ -561,145 +617,21 @@
     </section>
   </main>
 
-  <script>
-    const BUDGET_PER_HARI = 1_200_000_000_000;
-    const input = document.getElementById('nominal');
-
-    input.addEventListener('input', function() {
-      const raw = this.value.replace(/\D/g,'');
-      this.value = raw ? new Intl.NumberFormat('id-ID').format(raw) : '';
-      document.getElementById('result').classList.remove('show');
-    });
-    document.getElementById('judul').addEventListener('input', function() {
-      document.getElementById('result').classList.remove('show');
-    });
-    input.addEventListener('keydown', function(e){ if(e.key==='Enter') hitung(); });
-
-    const SCALES=[
-      {limit:1e15,suffix:'Kd'},{limit:1e12,suffix:'T'},
-      {limit:1e9,suffix:'M'},{limit:1e6,suffix:'Jt'},{limit:1e3,suffix:'Rb'}
-    ];
-    function fmtShort(n){
-      if(n===0)return'0';
-      if(n<1){const str=n.toFixed(20).replace(/0+$/,'');const m=str.match(/^0\.(0*)(\d{1,4})/);if(m)return'0.'+m[1]+m[2];return parseFloat(n.toPrecision(4)).toString();}
-      if(n<1e3){const v=parseFloat(n.toPrecision(4));return v.toLocaleString('id-ID',{maximumFractionDigits:4});}
-      for(const{limit,suffix}of SCALES){if(n>=limit){const v=n/limit;return parseFloat(v.toPrecision(4)).toLocaleString('id-ID',{maximumFractionDigits:2})+' '+suffix;}}
-      return parseFloat(n.toPrecision(4)).toLocaleString('id-ID',{maximumFractionDigits:4});
-    }
-    function adjustFontSize(el,baseSize,threshold){
-      if(!el)return;
-      const len=el.textContent.length;
-      el.style.fontSize=(len>threshold?Math.max(baseSize*(threshold/len),baseSize*.5):baseSize)+'px';
-    }
-    function hitung(){
-      const raw=document.getElementById('nominal').value.replace(/\D/g,'');
-      const nominal=parseFloat(raw)||0;
-      const hari=nominal/BUDGET_PER_HARI;
-      const totalJam=hari*24,totalMenit=hari*24*60,totalDetik=hari*24*3600;
-      const totalSiswa=Math.floor(nominal/10000);
-      const elHari=document.getElementById('hariVal'),elJam=document.getElementById('jamVal');
-      const elMenit=document.getElementById('menitVal'),elDetik=document.getElementById('detikVal');
-      const elSiswa=document.getElementById('siswaVal');
-      elHari.textContent=fmtShort(hari);elJam.textContent=fmtShort(totalJam);
-      elMenit.textContent=fmtShort(totalMenit);elDetik.textContent=fmtShort(totalDetik);
-      elSiswa.textContent=new Intl.NumberFormat('id-ID').format(totalSiswa);
-      document.getElementById('tepatnya').textContent=fmtShort(totalDetik)+' detik';
-      adjustFontSize(elHari,42,8);adjustFontSize(elSiswa,42,8);
-      adjustFontSize(elJam,20,8);adjustFontSize(elMenit,20,8);adjustFontSize(elDetik,20,8);
-      const judul=document.getElementById('judul').value.trim();
-      const judulLabel=document.getElementById('judulLabel'),judulSub=document.getElementById('judulSub');
-      if(judul){judulLabel.textContent=judul;judulLabel.style.display='block';judulSub.style.display='block';}
-      else{judulLabel.style.display='none';judulSub.style.display='none';}
-      const resultEl=document.getElementById('result');
-      const wasShowing=resultEl.classList.contains('show');
-      resultEl.classList.add('show');
-      if(!wasShowing&&nominal>0){
-        const count=200,defaults={origin:{y:.7},colors:['#e53e3e','#ffffff','#71717a']};
-        const fire=(r,o)=>confetti({...defaults,...o,particleCount:Math.floor(count*r)});
-        fire(.25,{spread:26,startVelocity:55});fire(.2,{spread:60});
-        fire(.35,{spread:100,decay:.91,scalar:.8});fire(.1,{spread:120,startVelocity:25,decay:.92,scalar:1.2});
-        fire(.1,{spread:120,startVelocity:45});
-      }
-      animateValue(elHari,0,hari,1000);animateValue(elJam,0,totalJam,1000);
-      animateValue(elMenit,0,totalMenit,1000);animateValue(elDetik,0,totalDetik,1000);
-      animateValue(elSiswa,0,totalSiswa,1000,true);
-
-      // Update dynamic OG for social crawlers (best-effort)
-      document.title = `${document.getElementById('judul').value.trim()||'Nominalmu'} = ${fmtShort(hari)} Hari MBG | Kalkulator MBG`;
-    }
-    function animateValue(el,start,end,duration,isInteger=false){
-      let ts=null;
-      const step=(t)=>{
-        if(!ts)ts=t;
-        const p=Math.min((t-ts)/duration,1),v=start+p*(end-start);
-        el.textContent=isInteger?new Intl.NumberFormat('id-ID').format(Math.floor(v)):fmtShort(v);
-        if(p<1)window.requestAnimationFrame(step);
-        else el.textContent=isInteger?new Intl.NumberFormat('id-ID').format(Math.floor(end)):fmtShort(end);
-      };
-      window.requestAnimationFrame(step);
-    }
-
-    // ── Share ──
-    let storyDataUrl=null;
-    function syncStoryCard(){
-      const get=id=>document.getElementById(id);
-      get('sc-hari').textContent=get('hariVal').textContent;
-      get('sc-siswa').textContent=get('siswaVal').textContent;
-      get('sc-jam').textContent=get('jamVal').textContent;
-      get('sc-menit').textContent=get('menitVal').textContent;
-      get('sc-detik').textContent=get('detikVal').textContent;
-      adjustFontSize(get('sc-hari'),180,8);adjustFontSize(get('sc-siswa'),180,8);
-      adjustFontSize(get('sc-jam'),64,6);adjustFontSize(get('sc-menit'),64,6);adjustFontSize(get('sc-detik'),64,6);
-      get('sc-tepatnya').textContent=get('tepatnya').textContent;
-      adjustFontSize(get('sc-tepatnya'),32,20);
-      const judul=document.getElementById('judul').value.trim();
-      if(judul){get('sc-judul').textContent=judul;get('sc-judul').style.display='block';get('sc-sub').textContent='setara dengan';get('sc-sub').style.display='block';}
-      else{get('sc-judul').style.display='none';get('sc-sub').style.display='none';}
-    }
-    async function openShare(){
-      document.getElementById('modalOverlay').classList.add('show');
-      document.getElementById('previewLoading').style.display='flex';
-      document.getElementById('previewImg').style.display='none';
-      storyDataUrl=null;syncStoryCard();
-      await new Promise(r=>setTimeout(r,100));
-      try{
-        const canvas=await html2canvas(document.getElementById('storyCard'),{width:1080,height:1920,scale:.35,backgroundColor:'#09090b',useCORS:true,logging:false});
-        storyDataUrl=canvas.toDataURL('image/png');
-        document.getElementById('previewImg').src=storyDataUrl;
-        document.getElementById('previewImg').style.display='block';
-        document.getElementById('previewLoading').style.display='none';
-      }catch(e){document.getElementById('previewLoading').textContent='Gagal membuat preview.';}
-    }
-    function closeModal(e){if(e.target===document.getElementById('modalOverlay'))document.getElementById('modalOverlay').classList.remove('show');}
-    function getShareText(){
-      const judul=document.getElementById('judul').value.trim();
-      const hari=document.getElementById('hariVal').textContent;
-      const nom=document.getElementById('nominal').value;
-      const base=judul?`${judul} (Rp ${nom}) setara ${hari} hari anggaran MBG 🍱`:`Rp ${nom} setara ${hari} hari anggaran MBG 🍱`;
-      return encodeURIComponent(base+'\n\nCek di: kalkulatormbg.vercel.app');
-    }
-    function downloadStory(){if(!storyDataUrl)return alert('Preview belum siap.');const a=document.createElement('a');a.href=storyDataUrl;a.download='mbg-story.png';a.click();}
-    async function shareNative(){
-      if(!storyDataUrl)return alert('Preview belum siap.');
-      try{
-        const res=await fetch(storyDataUrl),blob=await res.blob();
-        const file=new File([blob],'mbg-story.png',{type:'image/png'});
-        if(navigator.share&&navigator.canShare({files:[file]}))await navigator.share({files:[file],title:'Kalkulator MBG',text:decodeURIComponent(getShareText())});
-        else if(navigator.share)await navigator.share({title:'Kalkulator MBG',text:decodeURIComponent(getShareText())});
-        else downloadStory();
-      }catch(e){if(e.name!=='AbortError')downloadStory();}
-    }
-  </script>
-
-  <!-- Hidden story card for html2canvas -->
+  <!-- ═══════════════════════════════════════════════════════════════════
+       HIDDEN STORY CARD untuk html2canvas
+       FIX: position:fixed + visibility:hidden (bukan left:-9999px saja)
+       agar elemen tetap ter-layout dengan benar oleh browser sebelum
+       di-capture oleh html2canvas.
+  ═══════════════════════════════════════════════════════════════════ -->
   <div id="storyCard" aria-hidden="true">
     <div class="story-header">
       <div class="story-emoji">🍱</div>
       <div class="story-app">Kalkulator MBG</div>
     </div>
     <div class="story-body">
-      <div class="story-judul" id="sc-judul"></div>
-      <div class="story-sub"   id="sc-sub"></div>
+      <div class="story-judul"   id="sc-judul"></div>
+      <div class="story-nominal" id="sc-nominal"></div>
+      <div class="story-sub"     id="sc-sub"></div>
       <div class="story-hari"  id="sc-hari">0</div>
       <div class="story-hari-label">Hari MBG</div>
       <div class="story-hari"  id="sc-siswa" style="color:#fafafa;margin-top:30px">0</div>
@@ -712,7 +644,9 @@
       </div>
       <div class="story-tepatnya">Tepatnya <span id="sc-tepatnya">0 detik</span></div>
     </div>
-    <div class="story-footer">kalkulatormbg.vercel.app</div>
+    <div class="story-footer">
+      <span class="story-footer-url">kalkulatormbg.vercel.app</span>
+    </div>
   </div>
 
   <!-- Share modal -->
@@ -721,18 +655,366 @@
     <div class="modal">
       <div class="modal-title">📤 Bagikan ke Story</div>
       <div class="preview-wrap">
-        <div class="preview-loading" id="previewLoading">Membuat preview...</div>
+        <div class="preview-loading" id="previewLoading">
+          <div class="preview-spinner"></div>
+          <span>Membuat preview...</span>
+        </div>
         <img id="previewImg" style="display:none" alt="Preview story Kalkulator MBG">
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-        <button class="btn-download" onclick="downloadStory()" type="button">⬇️ Download</button>
-        <button class="btn-download" style="background:#27272a;border:1.5px solid #3f3f46"
-                onclick="shareNative()" type="button">↗️ Share</button>
+        <button class="btn-download" id="btnDownload" onclick="downloadStory()" type="button" disabled>⬇️ Download</button>
+        <button class="btn-download" id="btnShare" style="background:#27272a;border:1.5px solid #3f3f46"
+                onclick="shareNative()" type="button" disabled>↗️ Share</button>
       </div>
       <button class="btn-close" type="button"
               onclick="document.getElementById('modalOverlay').classList.remove('show')"
               aria-label="Tutup modal">Tutup</button>
     </div>
   </div>
+
+  <script>
+    const BUDGET_PER_HARI = 1_200_000_000_000;
+    const input = document.getElementById('nominal');
+
+    input.addEventListener('input', function() {
+      const raw = this.value.replace(/\D/g, '');
+      this.value = raw ? new Intl.NumberFormat('id-ID').format(raw) : '';
+      document.getElementById('result').classList.remove('show');
+    });
+    document.getElementById('judul').addEventListener('input', function() {
+      document.getElementById('result').classList.remove('show');
+    });
+    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') hitung(); });
+
+    const SCALES = [
+      { limit: 1e15, suffix: 'Kd' }, { limit: 1e12, suffix: 'T' },
+      { limit: 1e9,  suffix: 'M'  }, { limit: 1e6,  suffix: 'Jt' },
+      { limit: 1e3,  suffix: 'Rb' }
+    ];
+
+    function fmtShort(n) {
+      if (n === 0) return '0';
+      if (n < 1) {
+        const str = n.toFixed(20).replace(/0+$/, '');
+        const m = str.match(/^0\.(0*)(\d{1,4})/);
+        if (m) return '0.' + m[1] + m[2];
+        return parseFloat(n.toPrecision(4)).toString();
+      }
+      if (n < 1e3) {
+        const v = parseFloat(n.toPrecision(4));
+        return v.toLocaleString('id-ID', { maximumFractionDigits: 4 });
+      }
+      for (const { limit, suffix } of SCALES) {
+        if (n >= limit) {
+          const v = n / limit;
+          return parseFloat(v.toPrecision(4)).toLocaleString('id-ID', { maximumFractionDigits: 2 }) + ' ' + suffix;
+        }
+      }
+      return parseFloat(n.toPrecision(4)).toLocaleString('id-ID', { maximumFractionDigits: 4 });
+    }
+
+    function adjustFontSize(el, baseSize, threshold) {
+      if (!el) return;
+      const len = el.textContent.length;
+      el.style.fontSize = (len > threshold ? Math.max(baseSize * (threshold / len), baseSize * .5) : baseSize) + 'px';
+    }
+
+    function hitung() {
+      const raw     = document.getElementById('nominal').value.replace(/\D/g, '');
+      const nominal = parseFloat(raw) || 0;
+      const hari       = nominal / BUDGET_PER_HARI;
+      const totalJam   = hari * 24;
+      const totalMenit = hari * 24 * 60;
+      const totalDetik = hari * 24 * 3600;
+      const totalSiswa = Math.floor(nominal / 10000);
+
+      const elHari  = document.getElementById('hariVal');
+      const elJam   = document.getElementById('jamVal');
+      const elMenit = document.getElementById('menitVal');
+      const elDetik = document.getElementById('detikVal');
+      const elSiswa = document.getElementById('siswaVal');
+
+      elHari.textContent  = fmtShort(hari);
+      elJam.textContent   = fmtShort(totalJam);
+      elMenit.textContent = fmtShort(totalMenit);
+      elDetik.textContent = fmtShort(totalDetik);
+      elSiswa.textContent = fmtShort(totalSiswa);
+      document.getElementById('tepatnya').textContent = fmtShort(totalDetik) + ' detik';
+
+      adjustFontSize(elHari,  42, 8); adjustFontSize(elSiswa, 42, 8);
+      adjustFontSize(elJam,   20, 6); adjustFontSize(elMenit, 20, 6); adjustFontSize(elDetik, 20, 6);
+
+      const judul     = document.getElementById('judul').value.trim();
+      const judulLabel = document.getElementById('judulLabel');
+      const judulSub   = document.getElementById('judulSub');
+      if (judul) {
+        judulLabel.textContent = judul;
+        judulLabel.style.display = 'block';
+        judulSub.style.display   = 'block';
+      } else {
+        judulLabel.style.display = 'none';
+        judulSub.style.display   = 'none';
+      }
+
+      const resultEl   = document.getElementById('result');
+      const wasShowing = resultEl.classList.contains('show');
+      resultEl.classList.add('show');
+
+      if (!wasShowing && nominal > 0) {
+        const count    = 200;
+        const defaults = { origin: { y: .7 }, colors: ['#e53e3e', '#ffffff', '#71717a'] };
+        const fire     = (r, o) => confetti({ ...defaults, ...o, particleCount: Math.floor(count * r) });
+        fire(.25, { spread: 26, startVelocity: 55 });
+        fire(.20, { spread: 60 });
+        fire(.35, { spread: 100, decay: .91, scalar: .8 });
+        fire(.10, { spread: 120, startVelocity: 25, decay: .92, scalar: 1.2 });
+        fire(.10, { spread: 120, startVelocity: 45 });
+      }
+
+      animateValue(elHari,  0, hari,       1000);
+      animateValue(elJam,   0, totalJam,   1000);
+      animateValue(elMenit, 0, totalMenit, 1000);
+      animateValue(elDetik, 0, totalDetik, 1000);
+      animateValue(elSiswa, 0, totalSiswa, 1000, true);
+
+      document.title = `${judul || 'Nominalmu'} = ${fmtShort(hari)} Hari MBG | Kalkulator MBG`;
+    }
+
+    function animateValue(el, start, end, duration, isInteger = false) {
+      let ts = null;
+      const step = (t) => {
+        if (!ts) ts = t;
+        const p = Math.min((t - ts) / duration, 1);
+        const v = start + p * (end - start);
+        el.textContent = isInteger
+          ? fmtShort(Math.floor(v))
+          : fmtShort(v);
+        if (p < 1) window.requestAnimationFrame(step);
+        else el.textContent = isInteger
+          ? fmtShort(Math.floor(end))
+          : fmtShort(end);
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SHARE / STORY
+       FIX UTAMA:
+       1. render() → scale rendah (0.35) hanya untuk preview thumbnail
+       2. downloadStory() → render ulang dengan scale TINGGI (2) untuk
+          mendapatkan gambar 2160×3840 yang tajam saat di-download
+    ═══════════════════════════════════════════════════════════════════ */
+    let previewDataUrl = null; // hanya untuk preview thumbnail di modal
+
+    function syncStoryCard() {
+      const get = id => document.getElementById(id);
+      get('sc-hari').textContent   = get('hariVal').textContent;
+      get('sc-siswa').textContent  = get('siswaVal').textContent;
+      get('sc-jam').textContent    = get('jamVal').textContent;
+      get('sc-menit').textContent  = get('menitVal').textContent;
+      get('sc-detik').textContent  = get('detikVal').textContent;
+      adjustFontSize(get('sc-hari'),   180, 8);
+      adjustFontSize(get('sc-siswa'),  180, 8);
+      adjustFontSize(get('sc-jam'),     64, 6);
+      adjustFontSize(get('sc-menit'),   64, 6);
+      adjustFontSize(get('sc-detik'),   64, 6);
+      get('sc-tepatnya').textContent = get('tepatnya').textContent;
+      adjustFontSize(get('sc-tepatnya'), 32, 20);
+
+      const rawNominal = document.getElementById('nominal').value.replace(/\D/g, '');
+      const nominalNum = parseFloat(rawNominal) || 0;
+      get('sc-nominal').textContent   = nominalNum ? 'Rp ' + fmtShort(nominalNum) : '';
+      get('sc-nominal').style.display = nominalNum ? 'block' : 'none';
+
+      const judul = document.getElementById('judul').value.trim();
+      if (judul) {
+        get('sc-judul').textContent   = judul;
+        get('sc-judul').style.display = 'block';
+        get('sc-sub').textContent     = 'setara dengan';
+        get('sc-sub').style.display   = 'block';
+      } else {
+        get('sc-judul').style.display = 'none';
+        get('sc-sub').style.display   = 'none';
+        get('sc-sub').textContent     = 'setara dengan';
+        get('sc-sub').style.display   = 'block';
+      }
+      adjustFontSize(get('sc-nominal'), 64, 15);
+    }
+
+    /* Opsi html2canvas — dipakai di preview, download, dan share */
+    function h2cOptions(scale) {
+      return {
+        width: 1080,
+        height: 1920,
+        scale: scale,
+        backgroundColor: '#09090b',
+        useCORS: true,
+        allowTaint: false,
+        logging: false,
+        scrollX: 0,
+        scrollY: 0,
+        /* FIX: Yakinkan elemen dalam clone terlihat dan berada di posisi 0,0 */
+        onclone: (clonedDoc) => {
+          const card = clonedDoc.getElementById('storyCard');
+          if (card) {
+            card.style.opacity = '1';
+            card.style.left = '0';
+            card.style.top = '0';
+            card.style.visibility = 'visible';
+          }
+        }
+      };
+    }
+
+    /* Tunggu semua font (Plus Jakarta Sans) benar-benar ter-load
+       sebelum html2canvas capture, agar teks tidak fallback ke font
+       default dan tampil beda ukuran / spacing. */
+    async function waitFonts() {
+      if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready;
+      }
+      await new Promise(r => setTimeout(r, 80));
+    }
+
+    async function openShare() {
+      const overlay = document.getElementById('modalOverlay');
+      const loading = document.getElementById('previewLoading');
+      const img     = document.getElementById('previewImg');
+      const btnDl   = document.getElementById('btnDownload');
+      const btnSh   = document.getElementById('btnShare');
+
+      overlay.classList.add('show');
+      loading.style.display = 'flex';
+      img.style.display     = 'none';
+      btnDl.disabled        = true;
+      btnSh.disabled        = true;
+      previewDataUrl        = null;
+
+      syncStoryCard();
+
+      /* Tunggu font load + beri waktu browser layout ulang storyCard */
+      await waitFonts();
+      await new Promise(r => setTimeout(r, 150));
+
+      try {
+        /* Preview pakai scale kecil (0.4) agar cepat tampil di modal */
+        const canvas    = await html2canvas(document.getElementById('storyCard'), h2cOptions(0.4));
+        previewDataUrl  = canvas.toDataURL('image/png');
+        img.src         = previewDataUrl;
+        img.style.display = 'block';
+        loading.style.display = 'none';
+        btnDl.disabled  = false;
+        btnSh.disabled  = false;
+      } catch (e) {
+        loading.innerHTML = '<span>Gagal membuat preview. Coba lagi.</span>';
+        console.error('html2canvas error (preview):', e);
+      }
+    }
+
+    function closeModal(e) {
+      if (e.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('show');
+      }
+    }
+
+    /* FIX UTAMA — download pakai scale tinggi sehingga tidak pecah */
+    async function downloadStory() {
+      const btnDl = document.getElementById('btnDownload');
+      const orig  = btnDl.textContent;
+      btnDl.disabled    = true;
+      btnDl.textContent = '⏳ Memproses...';
+
+      try {
+        syncStoryCard();
+        /* Tunggu font load agar teks tidak pecah/berbeda font */
+        await waitFonts();
+        await new Promise(r => setTimeout(r, 100));
+
+        /* scale: 2 → gambar 2160×3840 px, tajam untuk IG/WA Story */
+        const hiCanvas = await html2canvas(
+          document.getElementById('storyCard'),
+          h2cOptions(2)
+        );
+        const url = hiCanvas.toDataURL('image/png');
+        const a   = document.createElement('a');
+        a.href     = url;
+        a.download = 'mbg-story.png';
+        a.click();
+      } catch (e) {
+        alert('Gagal membuat gambar. Coba lagi.');
+        console.error('html2canvas error (download):', e);
+      } finally {
+        btnDl.disabled    = false;
+        btnDl.textContent = orig;
+      }
+    }
+
+    function getShareText() {
+      const judul = document.getElementById('judul').value.trim();
+      const hari  = document.getElementById('hariVal').textContent;
+      const nom   = document.getElementById('nominal').value;
+      const base  = judul
+        ? `${judul} (Rp ${nom}) setara ${hari} hari anggaran MBG 🍱`
+        : `Rp ${nom} setara ${hari} hari anggaran MBG 🍱`;
+      return encodeURIComponent(base + '\n\nCek di: kalkulatormbg.vercel.app');
+    }
+
+    async function shareNative() {
+      const btnSh = document.getElementById('btnShare');
+      const orig  = btnSh.textContent;
+      btnSh.disabled    = true;
+      btnSh.textContent = '⏳ Memproses...';
+
+      try {
+        syncStoryCard();
+        /* Tunggu font load agar kualitas share konsisten */
+        await waitFonts();
+        await new Promise(r => setTimeout(r, 100));
+
+        /* share pakai hi-res scale:2 agar kualitas bagus */
+        const hiCanvas = await html2canvas(
+          document.getElementById('storyCard'),
+          h2cOptions(2)
+        );
+        const url  = hiCanvas.toDataURL('image/png');
+        const res  = await fetch(url);
+        const blob = await res.blob();
+        const file = new File([blob], 'mbg-story.png', { type: 'image/png' });
+
+        if (navigator.share && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: 'Kalkulator MBG',
+            text: decodeURIComponent(getShareText())
+          });
+        } else if (navigator.share) {
+          await navigator.share({
+            title: 'Kalkulator MBG',
+            text: decodeURIComponent(getShareText())
+          });
+        } else {
+          /* fallback: download jika Web Share API tidak tersedia */
+          const a   = document.createElement('a');
+          a.href     = url;
+          a.download = 'mbg-story.png';
+          a.click();
+        }
+      } catch (e) {
+        if (e.name !== 'AbortError') {
+          /* user cancel bukan error — jika benar error, fallback download */
+          try {
+            const a   = document.createElement('a');
+            a.href     = previewDataUrl || '';
+            a.download = 'mbg-story.png';
+            if (previewDataUrl) a.click();
+          } catch (_) {}
+          console.error('shareNative error:', e);
+        }
+      } finally {
+        btnSh.disabled    = false;
+        btnSh.textContent = orig;
+      }
+    }
+  </script>
 </body>
 </html>
